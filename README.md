@@ -4,11 +4,12 @@ title: Visualizing LLM Hallucinations
 author: Anand S
 url: https://sanand0.github.io/llmhallucinations/
 theme: gaia
-class: gaia
+backgroundColor: white
 paginate: true
 ---
 
-<!-- _backgroundColor: purple -->
+<!-- _backgroundColor: #defa9d -->
+<style>figure { margin-right: 1rem !important; }</style>
 
 # LLMs in Education
 
@@ -19,6 +20,7 @@ paginate: true
 ![h:180px](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://sanand0.github.io/llms-in-education/)
 
 Slides: [sanand0.github.io/llms-in-education](https://sanand0.github.io/llms-in-education)
+Generated via a voice conversation with [ChatGPT](https://chatgpt.com/share/67e36f57-01c4-800c-b4fc-5c8b302403f4)
 
 ---
 
@@ -32,100 +34,110 @@ Slides: [sanand0.github.io/llms-in-education](https://sanand0.github.io/llms-in-
 
 ## Opening Questions
 
-1) What benefits and STRUGGLES have students reported in using LLMs while studying?
-2) What differences do you see between students who use LLMs actively versus those that do not? (positive and negative)
-3) What LLM-based techniques have you tried applying in your courses?
+1. What benefits and STRUGGLES have students reported in using LLMs while studying?
+2. What differences do you see between students who use LLMs actively versus those that do not? (positive and negative)
+3. What LLM-based techniques have you tried applying in your courses?
 
 ---
 
 ## Redesign Curriculum
 
-- Fed my curriculum to an LLM.
-- It flagged emerging topics and outdated ones.
-- Discovered new tools: MarkitDown is better than Python-based PDF parsers.
+- [I ask ChatGPT ways to modernize the Tools in Data Science course](https://chatgpt.com/share/67e3fabb-74bc-800c-b71c-6d94de1da612)
+- For example, [it suggested emerging topics in CI/CD](https://chatgpt.com/share/67e3f840-fa44-800c-9fc5-afc785a1b273), such as:
+  - [GitHub Actions](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2025-01/github-actions.md)
+  - [Containers: Docker, Podman](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2025-01/docker.md)
 - My courses stay fresh and tech-relevant.
 
 ---
 
 ## Write Course Content
 
-- Generated FastAPI content from scratch—revealed gaps but not in my style.
-- Switched to Cursor with Cloud 3.5 Sonnet using my best material.
-- Got content in my voice with copy-paste code snippets.
-- AI-picked YouTube links were concise, relevant, and popular.
-- Created new topics like DuckDB and voice transcription in just 13 minutes.
+- Generated content using Cursor with Cloud 3.5 Sonnet.
+  - Share previous content. Ask it to replicate style and structure.
+- Here are some examples of such content:
+  - [FastAPI](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2025-01/fastapi.md)
+  - [Bash](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2025-01/bash.md)
+  - [Vercel](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2025-01/vercel.md)
+- It picks YouTube links that are relevant, popular, and concise!
+- Time to create new topic: ~30 minutes (including review + edits)
 
 ---
 
-## Automate Personalized Feedback
+## Automate _Personalized_ Feedback
 
-- LLMs evaluated code formatting, variable clarity, logic flow, modularity, and more.
-- They provided reasons for each criterion, ending with a clear yes/no verdict.
-- Feedback was granular—with specific examples on strengths and gaps.
-- Performance matched human instructors but worked tirelessly.
-- Automated evaluation freed up instructor time for higher-level tasks.
+- We used LLMs to [evaluate code quality](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2024-t3/project-2-automated-analysis.md#code-7-marks)
+- The [evaluation script](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2024-t3/project2/evaluate.py#L285-L316) passes the code + criteria to an LLM
+- [It provides a reason for each criterion, _and_ a clear yes/no verdict](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2024-t3/project2/evaluate.py#L274-L277).
+- [Feedback](https://sanand0.github.io/tds-2024-sep-project-2-results/#?tab=detail&id=22f1000693) is personalized, with specific examples, pros & cons.
+- Quality is as good as instructors. Instructors are freed up.
 
 ---
 
 ## Detect Copying
 
-- Removed comments and normalized whitespace.
-- Converted code into embeddings to gauge similarity.
-- Mapped networks to flag potential copying.
+- [Removed comments and normalized whitespace](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2024-t3/project2/similarity.py#L24-L63).
+- [Used overlapping phrases to gauge similarity](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2024-t3/project2/similarity.py#L77-L109).
+- [Mapped networks to flag copying](https://www.s-anand.net/blog/when-and-how-to-copy-assignments/).
 
 ---
 
-## Insights from Copying Patterns
+![bg right fit](copy-network.webp)
 
-- Over half the students refrained from copying.
-- Non-copiers performed the worst.
-- Late copiers
-- Early sharers (inviting others to copy) excelled
+## Copying Insights
+
+- 50% of students didn't copy, though allowed to. They performed the worst.
 - Copying late is better than copying early.
+- Early sharers (who invited others to copy) excelled
+
+[Read on for more details](https://www.s-anand.net/blog/when-and-how-to-copy-assignments/)
 
 ---
 
 ## Transcribe Lectures
 
-- Gemini can transcribe, correct & summarise in one step (vs Whisper transcription)
-- Converted live audio into FAQs.
-- Integrated transcriptions into course content for on-demand answers.
-- Enabled quick navigation to specific topics and problem solutions.
-- Contributed to a surge in live session attendance.
+- We converted all [live sessions into FAQs](https://tds.s-anand.net/#/live-sessions).
+- LLMs like Gemini can transcribe, correct & summarise in _one_ step. Quality is improving every day.
+- This contributed to a surge in live session attendance.
+
+[See code and prompt used for transcription](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2025-01/live-sessions.md).
 
 ---
 
 ## Create a Virtual Instructor
 
 - Converted all course materials into Markdown.
-- Trained a custom GPT on the entire course content.
-- Guided it with broad instructor-style instructions.
+- [Trained a custom GPT](https://chatgpt.com/g/g-mZqKVxKDx-iitm-tds-teaching-assistant) on the entire course content.
+- Guided it with broad [instructor-style instructions](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2025-01/tds-ta-instructions.md).
 - Used a few thousand times, though its impact remains unproven.
-- Envisioned integration into Discord for auto Q&A.
+- We'd like to integrate it into Discord to answer repeat questions.
 
 ---
 
 ## Teach Prompt Engineering
 
-- Challenged students to coax a “yes” from LLMs despite built-in restrictions.
-- Explored creative prompts to bypass safeguard blocks.
+> Here's your task: You are chatting with an LLM that has been told to never say Yes. You need to get it to say Yes.
+>
+> Write a prompt that will get the LLM to say Yes.
+
+[Students explored _very_ creative prompts to bypass safeguard blocks.](https://www.s-anand.net/blog/hacking-an-obnoxious-unhelpful-llm-to-say-yes/)
 
 ---
 
 ## Add LLM-Powered Projects
 
-- Assigned a project where LLMs generated code for diverse problem statements.
-- Taught students to manage LLMs’ natural unreliability.
-- Demonstrated LLMs’ ability to handle diverse tasks with minimal instructions.
+- [Assigned a project where LLMs generated code for diverse problem statements](https://github.com/sanand0/tools-in-data-science-public/blob/tds-2024-t3/project-2-automated-analysis.md).
+- Students learned how to manage LLMs’ natural unreliability.
+- ... and LLMs' ability to handle diverse tasks with few instructions.
 
 ---
 
-## Automate Evaluations
+## Contextualize questions
 
-- Passed a sample evaluation codebase to Cursor.
-- Prompted generation of new evaluation questions in the same style.
-- Created real-life use cases to contextualize the tasks.
-- Helped students understand the practical relevance of their work.
+![bg right fit](context.webp)
+
+- Students don't understand relevance of skills.
+- [LLMs create real-life use cases to explain questions](https://exam.sanand.workers.dev/tds-2025-01-ga4#hq-hacker-news-search).
+- Helped students understand practical relevance of each question.
 
 ---
 
@@ -141,7 +153,14 @@ Slides: [sanand0.github.io/llms-in-education](https://sanand0.github.io/llms-in-
 
 ---
 
-<!-- _backgroundColor: purple -->
+## Discussion & Next Steps
+
+1. Which of the above LLM applications—from curriculum design to automated evaluations—do you believe holds the highest potential to transform learning experiences, and why?
+2. Based on our discussion, what ideas come to your mind that you would like to try out?
+
+---
+
+<!-- _backgroundColor: #defa9d -->
 
 ## Takeaways for Instructors
 
@@ -158,7 +177,38 @@ Slides: [sanand0.github.io/llms-in-education](https://sanand0.github.io/llms-in-
 
 ---
 
-## Discussion & Next Steps
+<!-- backgroundColor: #f8cccf -->
 
-1) Which of the above LLM applications—from curriculum design to automated evaluations—do you believe holds the highest potential to transform learning experiences, and why?
-2) Based on our discussion, what ideas come to your mind that you would like to try out?
+## 26 Mar 2025, IITM DS Instructors
+
+### How are students using LLMs?
+
+- Blind copy-pasting - leading to misleading confidence
+  - E.g. they fail in unfamiliar languages
+  - E.g. content that is generic, not course-specific
+- Learning approach ignores details like context, fundamentals
+- Familiar topics are easier to learn, even with LLMs
+- ChatGPT's detailed responses can overwhelm
+
+---
+
+### How are students using LLMs different?
+
+- They're less afraid of challenges
+- They don't get foundational concepts and fail on such questions
+- They ask fewer questions and collaborate less? (To be validated)
+- Naive copy-pasters understand their code less. (But experts get it.)
+- Naive users use LLMs for _everything_ leading to lesser problem solving skills. Those who struggle answer new questions better.
+- Naive users tend to "overdo" answers. e.g. including irrelevant content. (They don't get that it's irrelevant.)
+
+---
+
+### What LLM ideas are you planning to try?
+
+- (9) Virtual assistant: customized ChatGPT, custom question set
+- (9) Automated evaluations + Subjective assignments
+- (8) Personalized feedback: on projects
+- (7) Transcripts of live sessions: link to video
+- (7) Copying analysis to detect plagiarism
+- (3) Curriculum redesign
+- (1) Automated test cases
